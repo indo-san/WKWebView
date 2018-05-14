@@ -68,6 +68,20 @@ class ViewController: UIViewController {
             NSLayoutConstraint(item: webView, attribute: .right, relatedBy: .equal, toItem: self.webViewContainer, attribute: .right, multiplier: 1, constant: 0),
             NSLayoutConstraint(item: webView, attribute: .bottom, relatedBy: .equal, toItem: self.webViewContainer, attribute: .bottom, multiplier: 1, constant: 0)
             ])
+    
+    
+        webView.scrollView.addObserver(self, forKeyPath: #keyPath(UIScrollView.contentSize), options: [.new, .old], context: nil)
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        guard let keyPath = keyPath else { return }
+        guard let scrollView = object as? UIScrollView else { return }
+
+        if keyPath == "contentSize" {
+            recommendationView?.removeFromSuperview()
+            setRecommendView()
+        }
+        
     }
     
     fileprivate func removeAllWKWebsiteData() {
@@ -117,10 +131,6 @@ extension ViewController: WKUIDelegate, WKNavigationDelegate {
         bottomLabel.text = time
         textField.text = webView.url?.absoluteString ?? ""
         indicatorView.stopAnimating()
-        recommendationView?.removeFromSuperview()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.setRecommendView()
-        }
         textField.resignFirstResponder()
     }
     
