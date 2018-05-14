@@ -117,7 +117,8 @@ extension ViewController: WKUIDelegate, WKNavigationDelegate {
         bottomLabel.text = time
         textField.text = webView.url?.absoluteString ?? ""
         indicatorView.stopAnimating()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+        recommendationView?.removeFromSuperview()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.setRecommendView()
         }
         textField.resignFirstResponder()
@@ -158,7 +159,6 @@ extension ViewController: UITextFieldDelegate {
 
 extension ViewController {
     func setRecommendView() {
-        recommendationView?.removeFromSuperview()
         recommendationView = UIView(frame: CGRect(x: 0,
                                                   y: webView.scrollView.contentSize.height,
                                                   width: UIApplication.shared.keyWindow!.bounds.width,

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9305934E20A95039007CC38A /* RecommendationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9305934D20A95039007CC38A /* RecommendationView.swift */; };
+		9305935020A95045007CC38A /* RecommendationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9305934F20A95045007CC38A /* RecommendationView.xib */; };
 		AE4D15F22022D2E0008DC1D9 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D15F12022D2E0008DC1D9 /* UIAlertControllerExtension.swift */; };
 		AE878A2C1F8DBF43003B795C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE878A2B1F8DBF43003B795C /* AppDelegate.swift */; };
 		AE878A2E1F8DBF43003B795C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE878A2D1F8DBF43003B795C /* ViewController.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9305934D20A95039007CC38A /* RecommendationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationView.swift; sourceTree = "<group>"; };
+		9305934F20A95045007CC38A /* RecommendationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendationView.xib; sourceTree = "<group>"; };
 		AE4D15F12022D2E0008DC1D9 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		AE878A281F8DBF43003B795C /* WKWebView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WKWebView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE878A2B1F8DBF43003B795C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -39,9 +43,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9305934C20A95015007CC38A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9305934D20A95039007CC38A /* RecommendationView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		AE4D15EC2022D27D008DC1D9 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				9305934C20A95015007CC38A /* View */,
 				AE4D15F02022D2BE008DC1D9 /* Utils */,
 				AE4D15EF2022D2B8008DC1D9 /* Extensions */,
 				AE4D15F32022D3D4008DC1D9 /* ViewControllers */,
@@ -65,6 +78,7 @@
 			children = (
 				AE878A2F1F8DBF43003B795C /* Main.storyboard */,
 				AE878A341F8DBF43003B795C /* LaunchScreen.storyboard */,
+				9305934F20A95045007CC38A /* RecommendationView.xib */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -182,6 +196,7 @@
 				AE878A361F8DBF43003B795C /* LaunchScreen.storyboard in Resources */,
 				AE878A331F8DBF43003B795C /* Assets.xcassets in Resources */,
 				AE878A311F8DBF43003B795C /* Main.storyboard in Resources */,
+				9305935020A95045007CC38A /* RecommendationView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +209,7 @@
 			files = (
 				AE4D15F22022D2E0008DC1D9 /* UIAlertControllerExtension.swift in Sources */,
 				AE878A2E1F8DBF43003B795C /* ViewController.swift in Sources */,
+				9305934E20A95039007CC38A /* RecommendationView.swift in Sources */,
 				AE8A406D1F8DCC98001F6C09 /* Benchmark.swift in Sources */,
 				AE878A2C1F8DBF43003B795C /* AppDelegate.swift in Sources */,
 			);
