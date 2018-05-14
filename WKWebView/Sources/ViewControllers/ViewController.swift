@@ -10,8 +10,10 @@ import UIKit
 import WebKit
 
 class ViewController: UIViewController {
-
-
+    
+    private var recommendationView: UIView? = nil
+    private var recommendationViewHeight: CGFloat = 1000
+    
     @IBOutlet private weak var webViewContainer: UIView!
     @IBOutlet private weak var textField: UITextField!
     @IBOutlet private weak var indicatorView: UIActivityIndicatorView! {
@@ -21,7 +23,7 @@ class ViewController: UIViewController {
     }
     
     @IBOutlet private weak var bottomLabel: UILabel!
-
+    
     private var webView: WKWebView! {
         didSet {
             webView.uiDelegate = self
@@ -30,11 +32,11 @@ class ViewController: UIViewController {
             webView.translatesAutoresizingMaskIntoConstraints = false
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupWebView()
-        webView.load(URLRequest(url: URL(string: "https://github.com/")!))
+        webView.load(URLRequest(url: URL(string: "https://www.google.co.jp/search?q=google&oq=google&aqs=chrome..69i57j69i60l3j0j69i59.1228j1j7&sourceid=chrome&ie=UTF-8")!))
     }
     
     @IBAction func onReloadButton(_ sender: UIBarButtonItem) {
@@ -115,27 +117,25 @@ extension ViewController: WKUIDelegate, WKNavigationDelegate {
         bottomLabel.text = time
         textField.text = webView.url?.absoluteString ?? ""
         indicatorView.stopAnimating()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.setRecommendView()
+        }
         textField.resignFirstResponder()
     }
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         indicatorView.stopAnimating()
     }
-
+    
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
         print(error)
     }
-
-//    func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
-//        let cred = URLCredential(trust: challenge.protectionSpace.serverTrust!)
-//        completionHandler(.useCredential, cred)
-//    }
 }
 
 
 // MARK: UITextFieldDelegate
 extension ViewController: UITextFieldDelegate {
-
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard let text = textField.text, !text.isEmpty else {
             let ac = UIAlertController.makeSimpleAlert("TextField is empty", message: nil, okTitle: "OK", okAction: nil, cancelTitle: nil, cancelAction: nil)
@@ -154,5 +154,20 @@ extension ViewController: UITextFieldDelegate {
         return true
     }
     
+}
+
+extension ViewController {
+    func setRecommendView() {
+        recommendationView?.removeFromSuperview()
+        recommendationView = UIView(frame: CGRect(x: 0,
+                                                  y: webView.scrollView.contentSize.height,
+                                                  width: UIApplication.shared.keyWindow!.bounds.width,
+                                                  height: recommendationViewHeight))
+        recommendationView?.backgroundColor = .blue
+        
+        // スクロール領域の拡張
+        webView.scrollView.contentInset = UIEdgeInsetsMake(0, 0, recommendationViewHeight, 0)
+        webView.scrollView.addSubview(recommendationView!)
+    }
 }
 
