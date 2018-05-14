@@ -36,7 +36,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupWebView()
-        webView.load(URLRequest(url: URL(string: "https://www.google.co.jp/search?q=google&oq=google&aqs=chrome..69i57j69i60l3j0j69i59.1228j1j7&sourceid=chrome&ie=UTF-8")!))
+        webView.load(URLRequest(url: URL(string: "https://tabelog.com/tokyo/A1315/A131503/13218399/")!))
     }
     
     @IBAction func onReloadButton(_ sender: UIBarButtonItem) {
@@ -75,9 +75,8 @@ class ViewController: UIViewController {
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         guard let keyPath = keyPath else { return }
-        //guard let scrollView = object as? UIScrollView else { return }
-        guard let newValue = change?[NSKeyValueChangeKey.newKey] as? CGSize else { return }
-        guard let oldValue = change?[NSKeyValueChangeKey.oldKey] as? CGSize else { return }
+        guard let newValue = change?[.newKey] as? CGSize else { return }
+        guard let oldValue = change?[.oldKey] as? CGSize else { return }
         guard recommendationView?.superview == nil || oldValue.height != newValue.height else { return }
         if keyPath == "contentSize" {
             recommendationView?.removeFromSuperview()
