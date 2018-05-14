@@ -75,8 +75,10 @@ class ViewController: UIViewController {
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         guard let keyPath = keyPath else { return }
-        guard let scrollView = object as? UIScrollView else { return }
-
+        //guard let scrollView = object as? UIScrollView else { return }
+        guard let newValue = change?[NSKeyValueChangeKey.newKey] as? CGSize else { return }
+        guard let oldValue = change?[NSKeyValueChangeKey.oldKey] as? CGSize else { return }
+        guard recommendationView?.superview == nil || oldValue.height != newValue.height else { return }
         if keyPath == "contentSize" {
             recommendationView?.removeFromSuperview()
             setRecommendView()
@@ -122,6 +124,7 @@ extension ViewController: WKUIDelegate, WKNavigationDelegate {
     }
     
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        recommendationView?.removeFromSuperview()
         Benchmarks.shared.start(key: webView.url?.absoluteString ?? "")
         indicatorView.startAnimating()
     }
