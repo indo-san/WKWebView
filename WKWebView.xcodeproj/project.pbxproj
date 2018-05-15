@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		9305934E20A95039007CC38A /* RecommendationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9305934D20A95039007CC38A /* RecommendationView.swift */; };
 		9305935020A95045007CC38A /* RecommendationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9305934F20A95045007CC38A /* RecommendationView.xib */; };
+		9305936520AAC326007CC38A /* RecommendationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9305936420AAC326007CC38A /* RecommendationCell.xib */; };
+		9305936720AAC392007CC38A /* RecommendationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9305936620AAC392007CC38A /* RecommendationCell.swift */; };
 		AE4D15F22022D2E0008DC1D9 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D15F12022D2E0008DC1D9 /* UIAlertControllerExtension.swift */; };
 		AE878A2C1F8DBF43003B795C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE878A2B1F8DBF43003B795C /* AppDelegate.swift */; };
 		AE878A2E1F8DBF43003B795C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE878A2D1F8DBF43003B795C /* ViewController.swift */; };
@@ -21,6 +23,8 @@
 /* Begin PBXFileReference section */
 		9305934D20A95039007CC38A /* RecommendationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationView.swift; sourceTree = "<group>"; };
 		9305934F20A95045007CC38A /* RecommendationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendationView.xib; sourceTree = "<group>"; };
+		9305936420AAC326007CC38A /* RecommendationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendationCell.xib; sourceTree = "<group>"; };
+		9305936620AAC392007CC38A /* RecommendationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationCell.swift; sourceTree = "<group>"; };
 		AE4D15F12022D2E0008DC1D9 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		AE878A281F8DBF43003B795C /* WKWebView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WKWebView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE878A2B1F8DBF43003B795C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +51,7 @@
 			isa = PBXGroup;
 			children = (
 				9305934D20A95039007CC38A /* RecommendationView.swift */,
+				9305936620AAC392007CC38A /* RecommendationCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -79,6 +84,7 @@
 				AE878A2F1F8DBF43003B795C /* Main.storyboard */,
 				AE878A341F8DBF43003B795C /* LaunchScreen.storyboard */,
 				9305934F20A95045007CC38A /* RecommendationView.xib */,
+				9305936420AAC326007CC38A /* RecommendationCell.xib */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -194,6 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE878A361F8DBF43003B795C /* LaunchScreen.storyboard in Resources */,
+				9305936520AAC326007CC38A /* RecommendationCell.xib in Resources */,
 				AE878A331F8DBF43003B795C /* Assets.xcassets in Resources */,
 				AE878A311F8DBF43003B795C /* Main.storyboard in Resources */,
 				9305935020A95045007CC38A /* RecommendationView.xib in Resources */,
@@ -211,6 +218,7 @@
 				AE878A2E1F8DBF43003B795C /* ViewController.swift in Sources */,
 				9305934E20A95039007CC38A /* RecommendationView.swift in Sources */,
 				AE8A406D1F8DCC98001F6C09 /* Benchmark.swift in Sources */,
+				9305936720AAC392007CC38A /* RecommendationCell.swift in Sources */,
 				AE878A2C1F8DBF43003B795C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

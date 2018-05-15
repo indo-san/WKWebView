@@ -185,7 +185,7 @@ extension ViewController {
                                           y: webView.scrollView.contentSize.height,
                                           width: UIApplication.shared.keyWindow!.bounds.width,
                                           height: recommendationViewHeight)
-        recommendationView.backgroundColor = .blue
+        recommendationView.backgroundColor = .gray
         webView.scrollView.addSubview(recommendationView)
         self.recommendationView = recommendationView
     }

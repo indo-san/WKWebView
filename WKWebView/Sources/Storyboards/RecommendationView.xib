@@ -17,14 +17,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4ZO-US-b7E">
-                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                    <rect key="frame" x="0.0" y="40" width="375" height="627"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="4ZO-US-b7E" secondAttribute="trailing" id="JED-Ip-Ent"/>
-                <constraint firstItem="4ZO-US-b7E" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="dSz-NY-UHg"/>
+                <constraint firstItem="4ZO-US-b7E" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="dSz-NY-UHg"/>
                 <constraint firstItem="4ZO-US-b7E" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="fbJ-tR-KWj"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="4ZO-US-b7E" secondAttribute="bottom" id="rtJ-Ju-O8v"/>
             </constraints>
