@@ -11,8 +11,16 @@ import WebKit
 
 class ViewController: UIViewController {
     
+    private var previousPointY = CGFloat()
+    
     private var recommendationView: UIView? = nil
     private var recommendationViewHeight: CGFloat = 1000
+    
+    private var bottomInset: CGFloat = 0 {
+        didSet {
+            bottomInset = max(bottomInset, 0)
+        }
+    }
     
     @IBOutlet private weak var webViewContainer: UIView!
     @IBOutlet private weak var textField: UITextField!
@@ -183,14 +191,27 @@ extension ViewController {
 
 extension ViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print(scrollView.contentOffset.y)
-        print(scrollView.contentSize.height)
+        guard scrollView.contentSize.height > 0 else { return }
+        let dy = scrollView.contentOffset.y - previousPointY
 
+        if webView.scrollView.contentInset.bottom == recommendationViewHeight && dy > 0 {
+            return
+        }
+        
+        // show recommendation view
         if scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.frame.height {
-            webView.scrollView.contentInset = UIEdgeInsetsMake(0, 0, recommendationViewHeight, 0)
-        } else if scrollView.contentOffset.y - scrollView.contentSize.height < 0 {
+            bottomInset += dy
+            if dy > 0 {
+                bottomInset = min(recommendationViewHeight, bottomInset)
+            }
+            
+            webView.scrollView.contentInset = UIEdgeInsetsMake(0, 0, bottomInset, 0)
+        } else {
             webView.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
         }
+        
+        previousPointY = scrollView.contentOffset.y
+        
 
     }
 }
