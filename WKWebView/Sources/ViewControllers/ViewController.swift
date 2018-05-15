@@ -44,7 +44,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupWebView()
-        webView.load(URLRequest(url: URL(string: "https://tabelog.com/tokyo/A1315/A131503/13218399/")!))
+        webView.load(URLRequest(url: URL(string: "https://news.yahoo.co.jp/pickup/6282592")!))
     }
     
     @IBAction func onReloadButton(_ sender: UIBarButtonItem) {
@@ -165,15 +165,25 @@ extension ViewController: UITextFieldDelegate {
             return true
         }
         
-        guard let url = URL(string: text), UIApplication.shared.canOpenURL(url) else {
-            let ac = UIAlertController.makeSimpleAlert("Text is not URL", message: nil, okTitle: "OK", okAction: nil, cancelTitle: nil, cancelAction: nil)
-            self.present(ac, animated: true, completion: nil)
-            return true
-        }
         
-        webView.load(URLRequest(url: url))
-        textField.resignFirstResponder()
-        return true
+        if let url = URL(string: text), UIApplication.shared.canOpenURL(url) {
+            webView.load(URLRequest(url: url))
+            textField.resignFirstResponder()
+            return true
+        } else {
+            
+            if let encodedText = text.addingPercentEncoding(withAllowedCharacters: .alphanumerics),
+                let url = URL(string: "https://www.google.co.jp/search?q=" + encodedText),
+                UIApplication.shared.canOpenURL(url) {
+                webView.load(URLRequest(url: url))
+                textField.resignFirstResponder()
+                return true
+            } else {
+                let ac = UIAlertController.makeSimpleAlert("Text is not URL", message: nil, okTitle: "OK", okAction: nil, cancelTitle: nil, cancelAction: nil)
+                self.present(ac, animated: true, completion: nil)
+                return true
+            }
+        }
     }
     
 }
