@@ -15,7 +15,8 @@ class ViewController: UIViewController {
     
     private var recommendationView: RecommendationView? = nil
     private var recommendationViewHeight: CGFloat = 500
-    
+    private var recommendationViewOffset: CGFloat = 20
+
     private var bottomInset: CGFloat = 0 {
         didSet {
             bottomInset = max(bottomInset, 0)
@@ -205,6 +206,16 @@ extension ViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard scrollView.contentSize.height > 0 else { return }
         let dy = scrollView.contentOffset.y - previousPointY
+        
+        let recommendContentHeight = recommendationView!.tableView.contentSize.height
+        recommendationViewHeight = recommendContentHeight + recommendationViewOffset
+        if recommendationView!.frame.height != recommendationViewHeight {
+            recommendationView!.frame = CGRect(x: 0,
+                                               y: webView.scrollView.contentSize.height,
+                                               width: UIApplication.shared.keyWindow!.bounds.width,
+                                               height: recommendationViewHeight + recommendationViewOffset)
+        }
+
         
         if webView.scrollView.contentInset.bottom == recommendationViewHeight && dy > 0 {
             return

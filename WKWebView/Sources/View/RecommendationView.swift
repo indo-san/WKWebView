@@ -11,6 +11,7 @@ import UIKit
 class RecommendationView: UIView {
     @IBOutlet weak var tableView: UITableView! {
         didSet {
+            tableView.bounces = false
             tableView.dataSource = self
             tableView.register(UINib(nibName: "RecommendationCell", bundle: nil), forCellReuseIdentifier: "RecommendationCell")
         }
