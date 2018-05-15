@@ -61,6 +61,7 @@ class ViewController: UIViewController {
     private func setupWebView() {
         let configuration = WKWebViewConfiguration()
         webView = WKWebView(frame: CGRect.zero, configuration: configuration)
+        webView.scrollView.delegate = self
         self.webViewContainer.addSubview(webView)
         self.webViewContainer.addConstraints([
             NSLayoutConstraint(item: webView, attribute: .top, relatedBy: .equal, toItem: self.webViewContainer, attribute: .top, multiplier: 1, constant: 0),
@@ -176,10 +177,21 @@ extension ViewController {
                                                   width: UIApplication.shared.keyWindow!.bounds.width,
                                                   height: recommendationViewHeight))
         recommendationView?.backgroundColor = .blue
-        
-        // スクロール領域の拡張
-        webView.scrollView.contentInset = UIEdgeInsetsMake(0, 0, recommendationViewHeight, 0)
         webView.scrollView.addSubview(recommendationView!)
+    }
+}
+
+extension ViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print(scrollView.contentOffset.y)
+        print(scrollView.contentSize.height)
+
+        if scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.frame.height {
+            webView.scrollView.contentInset = UIEdgeInsetsMake(0, 0, recommendationViewHeight, 0)
+        } else if scrollView.contentOffset.y - scrollView.contentSize.height < 0 {
+            webView.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        }
+
     }
 }
 
