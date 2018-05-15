@@ -13,8 +13,8 @@ class ViewController: UIViewController {
     
     private var previousPointY = CGFloat()
     
-    private var recommendationView: UIView? = nil
-    private var recommendationViewHeight: CGFloat = 1000
+    private var recommendationView: RecommendationView? = nil
+    private var recommendationViewHeight: CGFloat = 500
     
     private var bottomInset: CGFloat = 0 {
         didSet {
@@ -77,8 +77,8 @@ class ViewController: UIViewController {
             NSLayoutConstraint(item: webView, attribute: .right, relatedBy: .equal, toItem: self.webViewContainer, attribute: .right, multiplier: 1, constant: 0),
             NSLayoutConstraint(item: webView, attribute: .bottom, relatedBy: .equal, toItem: self.webViewContainer, attribute: .bottom, multiplier: 1, constant: 0)
             ])
-    
-    
+        
+        
         webView.scrollView.addObserver(self, forKeyPath: #keyPath(UIScrollView.contentSize), options: [.new, .old], context: nil)
     }
     
@@ -180,12 +180,14 @@ extension ViewController: UITextFieldDelegate {
 
 extension ViewController {
     func setRecommendView() {
-        recommendationView = UIView(frame: CGRect(x: 0,
-                                                  y: webView.scrollView.contentSize.height,
-                                                  width: UIApplication.shared.keyWindow!.bounds.width,
-                                                  height: recommendationViewHeight))
-        recommendationView?.backgroundColor = .blue
-        webView.scrollView.addSubview(recommendationView!)
+        let recommendationView = UINib(nibName: "RecommendationView", bundle: nil).instantiate(withOwner: nil, options: nil).first as! RecommendationView
+        recommendationView.frame = CGRect(x: 0,
+                                          y: webView.scrollView.contentSize.height,
+                                          width: UIApplication.shared.keyWindow!.bounds.width,
+                                          height: recommendationViewHeight)
+        recommendationView.backgroundColor = .blue
+        webView.scrollView.addSubview(recommendationView)
+        self.recommendationView = recommendationView
     }
 }
 
@@ -193,7 +195,7 @@ extension ViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard scrollView.contentSize.height > 0 else { return }
         let dy = scrollView.contentOffset.y - previousPointY
-
+        
         if webView.scrollView.contentInset.bottom == recommendationViewHeight && dy > 0 {
             return
         }
@@ -212,7 +214,7 @@ extension ViewController: UIScrollViewDelegate {
         
         previousPointY = scrollView.contentOffset.y
         
-
+        
     }
 }
 
