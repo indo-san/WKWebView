@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		931EC3FA20C10FAC00CE965A /* UIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931EC3F920C10FAC00CE965A /* UIConstant.swift */; };
 		AE4D15F22022D2E0008DC1D9 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D15F12022D2E0008DC1D9 /* UIAlertControllerExtension.swift */; };
 		AE878A2C1F8DBF43003B795C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE878A2B1F8DBF43003B795C /* AppDelegate.swift */; };
 		AE878A2E1F8DBF43003B795C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE878A2D1F8DBF43003B795C /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		931EC3F920C10FAC00CE965A /* UIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstant.swift; sourceTree = "<group>"; };
 		AE4D15F12022D2E0008DC1D9 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		AE878A281F8DBF43003B795C /* WKWebView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WKWebView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE878A2B1F8DBF43003B795C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				AE8A406C1F8DCC98001F6C09 /* Benchmark.swift */,
+				931EC3F920C10FAC00CE965A /* UIConstant.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				AE4D15F22022D2E0008DC1D9 /* UIAlertControllerExtension.swift in Sources */,
 				AE878A2E1F8DBF43003B795C /* ViewController.swift in Sources */,
 				AE8A406D1F8DCC98001F6C09 /* Benchmark.swift in Sources */,
+				931EC3FA20C10FAC00CE965A /* UIConstant.swift in Sources */,
 				AE878A2C1F8DBF43003B795C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

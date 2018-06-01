@@ -11,6 +11,8 @@ import WebKit
 
 class ViewController: UIViewController {
 
+    private var previousY: CGFloat = 0
+    
     
     @IBOutlet weak var topbarTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var bottombarBottomConstraint: NSLayoutConstraint!
@@ -158,7 +160,31 @@ extension ViewController: UITextFieldDelegate {
 
 extension ViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print(scrollView)
+        print(scrollView.contentOffset.y)
+        let dy = scrollView.contentOffset.y - previousY
+        guard !scrollView.isBouncingY else { return }
+        guard dy != 0 else { return }
+        if dy > 0 {
+            let value = topbarTopConstraint.constant - abs(dy)
+            topbarTopConstraint.constant = max(value, UIConstant.topbarTopConstraintMin)
+        } else {
+            guard scrollView.isAtTop else { return }
+            let value = topbarTopConstraint.constant + abs(dy)
+            topbarTopConstraint.constant = min(value, UIConstant.topbarTopConstraintMax)
+        }
+        
+        previousY = scrollView.contentOffset.y
+    }
+}
+
+extension UIScrollView {
+    var isAtTop: Bool {
+        return contentOffset.y <= 0
+    }
+
+    var isBouncingY: Bool {
+        let contentTop = contentSize.height - frame.size.height
+        return contentOffset.y >= contentTop
     }
 }
 
