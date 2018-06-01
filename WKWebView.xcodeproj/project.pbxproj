@@ -150,6 +150,7 @@
 				TargetAttributes = {
 					AE878A271F8DBF43003B795C = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 8PPYBVJBY2;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
@@ -335,6 +336,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8PPYBVJBY2;
 				INFOPLIST_FILE = "$(SRCROOT)/WKWebView/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yokurin.WKWebView;
@@ -348,6 +350,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8PPYBVJBY2;
 				INFOPLIST_FILE = "$(SRCROOT)/WKWebView/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yokurin.WKWebView;

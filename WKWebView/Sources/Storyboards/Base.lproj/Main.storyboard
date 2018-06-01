@@ -45,7 +45,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wdP-R0-RN8">
                                         <rect key="frame" x="320" y="5" width="50" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="Jbg-ls-59g"/>
+                                            <constraint firstAttribute="width" constant="50" id="k2P-px-cK0"/>
                                         </constraints>
                                         <state key="normal" title="Reload">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -124,8 +124,10 @@
                     </view>
                     <connections>
                         <outlet property="bottomLabel" destination="Eah-pm-2Zq" id="ze5-gp-FHd"/>
+                        <outlet property="bottombarBottomConstraint" destination="4R8-Om-P1l" id="wqe-li-TuS"/>
                         <outlet property="indicatorView" destination="bIx-xe-VqO" id="1oe-pu-Ngs"/>
                         <outlet property="textField" destination="JXi-ZB-9yp" id="DPn-Vw-bEJ"/>
+                        <outlet property="topbarTopConstraint" destination="bnG-tm-R9i" id="0dZ-cJ-xEk"/>
                         <outlet property="webViewContainer" destination="pjn-TP-3A0" id="T2O-L5-oyr"/>
                     </connections>
                 </viewController>

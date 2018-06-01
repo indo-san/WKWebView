@@ -11,7 +11,10 @@ import WebKit
 
 class ViewController: UIViewController {
 
-
+    
+    @IBOutlet weak var topbarTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bottombarBottomConstraint: NSLayoutConstraint!
+    
     @IBOutlet private weak var webViewContainer: UIView!
     @IBOutlet private weak var textField: UITextField!
     @IBOutlet private weak var indicatorView: UIActivityIndicatorView! {
@@ -28,6 +31,7 @@ class ViewController: UIViewController {
             webView.navigationDelegate = self
             webView.allowsBackForwardNavigationGestures = true
             webView.translatesAutoresizingMaskIntoConstraints = false
+            webView.scrollView.delegate = self
         }
     }
 
@@ -125,11 +129,6 @@ extension ViewController: WKUIDelegate, WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
         print(error)
     }
-
-//    func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
-//        let cred = URLCredential(trust: challenge.protectionSpace.serverTrust!)
-//        completionHandler(.useCredential, cred)
-//    }
 }
 
 
@@ -154,5 +153,12 @@ extension ViewController: UITextFieldDelegate {
         return true
     }
     
+}
+
+
+extension ViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print(scrollView)
+    }
 }
 
