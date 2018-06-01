@@ -163,12 +163,13 @@ extension ViewController: UIScrollViewDelegate {
         print(scrollView.contentOffset.y)
         let dy = scrollView.contentOffset.y - previousY
         guard !scrollView.isBouncingY else { return }
+        guard !scrollView.isAtTop else { return }
+
         guard dy != 0 else { return }
         if dy > 0 {
             let value = topbarTopConstraint.constant - abs(dy)
             topbarTopConstraint.constant = max(value, UIConstant.topbarTopConstraintMin)
         } else {
-            guard scrollView.isAtTop else { return }
             let value = topbarTopConstraint.constant + abs(dy)
             topbarTopConstraint.constant = min(value, UIConstant.topbarTopConstraintMax)
         }
