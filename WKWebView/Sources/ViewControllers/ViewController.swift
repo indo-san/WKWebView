@@ -37,14 +37,14 @@ class ViewController: UIViewController {
         webView.load(URLRequest(url: URL(string: "https://github.com/")!))
     }
     
-    @IBAction func onReloadButton(_ sender: UIBarButtonItem) {
+    @IBAction func onReloadButton(_ sender: UIButton) {
         if webView.isLoading {
             webView.stopLoading()
         }
         webView.reload()
     }
     
-    @IBAction func onTrashButton(_ sender: UIBarButtonItem) {
+    @IBAction func onTrashButton(_ sender: UIButton) {
         let ac = UIAlertController(title: "Delete All Website Data", message: "DiskCache\nOfflineWebApplicationCache\nMemoryCache\nLocalStorage\nCookies\nSessionStorage\nIndexedDBDatabases\nWebSQLDatabases", preferredStyle: .alert)
         let ok = UIAlertAction(title: "OK", style: .default) { [weak self] (action) in
             self?.removeAllWKWebsiteData()
