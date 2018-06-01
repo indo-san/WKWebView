@@ -10,7 +10,7 @@ import UIKit
 
 enum UIConstant {
     static let topbarTopConstraintMax: CGFloat = 0
-    static let topbarTopConstraintMin: CGFloat = -40
+    static let topbarTopConstraintMin: CGFloat = -60
 
     static let bottombarTopConstraintMax: CGFloat = 0
     static let bottombarTopConstraintMin: CGFloat = -83

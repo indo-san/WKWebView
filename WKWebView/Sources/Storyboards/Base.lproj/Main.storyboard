@@ -20,10 +20,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GFw-Lh-tu1">
-                                <rect key="frame" x="0.0" y="20" width="375" height="40"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="60"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="JXi-ZB-9yp">
-                                        <rect key="frame" x="63" y="5" width="252" height="30"/>
+                                        <rect key="frame" x="63" y="5" width="252" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
@@ -31,7 +31,7 @@
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Plc-qi-SHx">
-                                        <rect key="frame" x="8" y="5" width="50" height="30"/>
+                                        <rect key="frame" x="8" y="5" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="rsS-Cq-L1C"/>
                                         </constraints>
@@ -43,7 +43,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wdP-R0-RN8">
-                                        <rect key="frame" x="320" y="5" width="50" height="30"/>
+                                        <rect key="frame" x="320" y="5" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="k2P-px-cK0"/>
                                         </constraints>
@@ -60,7 +60,7 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="JXi-ZB-9yp" secondAttribute="bottom" constant="5" id="3Ep-jF-dnM"/>
                                     <constraint firstAttribute="bottom" secondItem="wdP-R0-RN8" secondAttribute="bottom" constant="5" id="AaQ-9n-Z5o"/>
-                                    <constraint firstAttribute="height" constant="40" id="Eng-QF-tzY"/>
+                                    <constraint firstAttribute="height" constant="60" id="Eng-QF-tzY"/>
                                     <constraint firstItem="wdP-R0-RN8" firstAttribute="leading" secondItem="JXi-ZB-9yp" secondAttribute="trailing" constant="5" id="MGG-or-G91"/>
                                     <constraint firstItem="JXi-ZB-9yp" firstAttribute="leading" secondItem="Plc-qi-SHx" secondAttribute="trailing" constant="5" id="Q2J-jM-2ef"/>
                                     <constraint firstItem="wdP-R0-RN8" firstAttribute="top" secondItem="GFw-Lh-tu1" secondAttribute="top" constant="5" id="Vha-GQ-j5a"/>
@@ -72,7 +72,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pjn-TP-3A0">
-                                <rect key="frame" x="-0.5" y="60" width="375" height="524"/>
+                                <rect key="frame" x="-0.5" y="80" width="375" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eWY-X7-HDx">
@@ -97,7 +97,7 @@
                                 </constraints>
                             </view>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="bIx-xe-VqO">
-                                <rect key="frame" x="-0.5" y="60" width="375" height="524"/>
+                                <rect key="frame" x="-0.5" y="80" width="375" height="504"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.64637433978873238" colorSpace="calibratedWhite"/>
                                 <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
