@@ -167,11 +167,17 @@ extension ViewController: UIScrollViewDelegate {
 
         guard dy != 0 else { return }
         if dy > 0 {
-            let value = topbarTopConstraint.constant - abs(dy)
-            topbarTopConstraint.constant = max(value, UIConstant.topbarTopConstraintMin)
+            let topConstraint = topbarTopConstraint.constant - abs(dy)
+            topbarTopConstraint.constant = max(topConstraint, UIConstant.topbarTopConstraintMin)
+            
+            let bottomConstraint = bottombarBottomConstraint.constant - abs(dy)
+            bottombarBottomConstraint.constant = max(bottomConstraint, UIConstant.bottombarTopConstraintMin)
         } else {
-            let value = topbarTopConstraint.constant + abs(dy)
-            topbarTopConstraint.constant = min(value, UIConstant.topbarTopConstraintMax)
+            let topConstraint = topbarTopConstraint.constant + abs(dy)
+            topbarTopConstraint.constant = min(topConstraint, UIConstant.topbarTopConstraintMax)
+            
+            let bottomConstraint = bottombarBottomConstraint.constant + abs(dy)
+            bottombarBottomConstraint.constant = min(bottomConstraint, UIConstant.bottombarTopConstraintMax)
         }
         
         previousY = scrollView.contentOffset.y
