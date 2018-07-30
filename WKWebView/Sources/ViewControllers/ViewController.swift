@@ -8,6 +8,7 @@
 
 import UIKit
 import WebKit
+import Intents
 
 class ViewController: UIViewController {
 
@@ -35,6 +36,16 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setupWebView()
         webView.load(URLRequest(url: URL(string: "https://github.com/")!))
+        
+        if #available(iOS 12.0, *) {
+            let intent = SampleIntent()
+            let interaction = INInteraction(intent: intent, response: nil)
+            interaction.donate { (error) in
+                if error != nil {
+                    print(error)
+                }
+            }
+        }
     }
     
     @IBAction func onReloadButton(_ sender: UIBarButtonItem) {
