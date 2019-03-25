@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A24239069A24C9B243F21B45 /* Pods_WKWebView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4203DAD2D9368365A67797 /* Pods_WKWebView.framework */; };
 		AE4D15F22022D2E0008DC1D9 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D15F12022D2E0008DC1D9 /* UIAlertControllerExtension.swift */; };
 		AE878A2C1F8DBF43003B795C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE878A2B1F8DBF43003B795C /* AppDelegate.swift */; };
 		AE878A2E1F8DBF43003B795C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE878A2D1F8DBF43003B795C /* ViewController.swift */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		508D1DDF230A07E9355CD758 /* Pods-WKWebView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKWebView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WKWebView/Pods-WKWebView.debug.xcconfig"; sourceTree = "<group>"; };
+		936059B064F9D9EC17E3976A /* Pods-WKWebView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKWebView.release.xcconfig"; path = "Pods/Target Support Files/Pods-WKWebView/Pods-WKWebView.release.xcconfig"; sourceTree = "<group>"; };
 		AE4D15F12022D2E0008DC1D9 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		AE878A281F8DBF43003B795C /* WKWebView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WKWebView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE878A2B1F8DBF43003B795C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +29,7 @@
 		AE878A351F8DBF43003B795C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE878A371F8DBF43003B795C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE8A406C1F8DCC98001F6C09 /* Benchmark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Benchmark.swift; sourceTree = "<group>"; };
+		CB4203DAD2D9368365A67797 /* Pods_WKWebView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WKWebView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,12 +37,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A24239069A24C9B243F21B45 /* Pods_WKWebView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84E73A890A64B4A134C4FC04 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CB4203DAD2D9368365A67797 /* Pods_WKWebView.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8A9F1FA39D64135E5A1FFD86 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				508D1DDF230A07E9355CD758 /* Pods-WKWebView.debug.xcconfig */,
+				936059B064F9D9EC17E3976A /* Pods-WKWebView.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		AE4D15EC2022D27D008DC1D9 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +120,8 @@
 			children = (
 				AE878A2A1F8DBF43003B795C /* WKWebView */,
 				AE878A291F8DBF43003B795C /* Products */,
+				8A9F1FA39D64135E5A1FFD86 /* Pods */,
+				84E73A890A64B4A134C4FC04 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,9 +149,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AE878A3A1F8DBF43003B795C /* Build configuration list for PBXNativeTarget "WKWebView" */;
 			buildPhases = (
+				BCF3467ADFE50860A9941B00 /* [CP] Check Pods Manifest.lock */,
 				AE878A241F8DBF43003B795C /* Sources */,
 				AE878A251F8DBF43003B795C /* Frameworks */,
 				AE878A261F8DBF43003B795C /* Resources */,
+				76D6935B08B0225BD05DA728 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -186,6 +212,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		76D6935B08B0225BD05DA728 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-WKWebView/Pods-WKWebView-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WKWebView/Pods-WKWebView-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BCF3467ADFE50860A9941B00 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WKWebView-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AE878A241F8DBF43003B795C /* Sources */ = {
@@ -334,6 +407,7 @@
 		};
 		AE878A3B1F8DBF43003B795C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 508D1DDF230A07E9355CD758 /* Pods-WKWebView.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = TTERGQ9999;
@@ -348,6 +422,7 @@
 		};
 		AE878A3C1F8DBF43003B795C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 936059B064F9D9EC17E3976A /* Pods-WKWebView.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = TTERGQ9999;

@@ -8,11 +8,10 @@
 
 import UIKit
 import WebKit
+import SnapKit
 
 class ViewController: UIViewController {
 
-
-    @IBOutlet private weak var webViewContainer: UIView!
     @IBOutlet private weak var textField: UITextField!
     @IBOutlet private weak var indicatorView: UIActivityIndicatorView! {
         didSet {
@@ -40,8 +39,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupWebView()
-        webView.load(URLRequest(url: URL(string: "https://google.com/")!))
     }
     
     @IBAction func onReloadButton(_ sender: UIBarButtonItem) {
@@ -60,19 +57,6 @@ class ViewController: UIViewController {
         ac.addAction(ok)
         ac.addAction(cancel)
         self.present(ac, animated: true, completion: nil)
-    }
-    
-    
-    private func setupWebView() {
-        let configuration = WKWebViewConfiguration()
-        webView = WKWebView(frame: CGRect.zero, configuration: configuration)
-        self.webViewContainer.addSubview(webView)
-        self.webViewContainer.addConstraints([
-            NSLayoutConstraint(item: webView, attribute: .top, relatedBy: .equal, toItem: self.webViewContainer, attribute: .top, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: webView, attribute: .left, relatedBy: .equal, toItem: self.webViewContainer, attribute: .left, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: webView, attribute: .right, relatedBy: .equal, toItem: self.webViewContainer, attribute: .right, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: webView, attribute: .bottom, relatedBy: .equal, toItem: self.webViewContainer, attribute: .bottom, multiplier: 1, constant: 0)
-            ])
     }
     
     fileprivate func removeAllWKWebsiteData() {
@@ -172,6 +156,14 @@ extension ViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        let configuration = WKWebViewConfiguration()
+        webView = WKWebView(frame: CGRect.zero, configuration: configuration)
+        cell.contentView.addSubview(webView)
+        webView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        webView.load(URLRequest(url: URL(string: "https://google.com/")!))
+
         return cell
     }
 }
