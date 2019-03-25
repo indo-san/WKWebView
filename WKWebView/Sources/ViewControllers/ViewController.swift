@@ -21,7 +21,14 @@ class ViewController: UIViewController {
     }
     
     @IBOutlet private weak var bottomLabel: UILabel!
-
+    @IBOutlet weak var collectionView: UICollectionView! {
+        didSet {
+            collectionView.dataSource = self
+            collectionView.delegate = self
+            collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        }
+    }
+    
     private var webView: WKWebView! {
         didSet {
             webView.uiDelegate = self
@@ -34,7 +41,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupWebView()
-        webView.load(URLRequest(url: URL(string: "https://github.com/")!))
+        webView.load(URLRequest(url: URL(string: "https://google.com/")!))
     }
     
     @IBAction func onReloadButton(_ sender: UIBarButtonItem) {
@@ -156,3 +163,21 @@ extension ViewController: UITextFieldDelegate {
     
 }
 
+
+extension ViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        return cell
+    }
+}
+
+extension ViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return collectionView.frame.size
+    }
+}
