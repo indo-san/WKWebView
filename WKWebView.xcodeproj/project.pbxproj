@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9306AE4A23FCF78900C26F6A /* ABPKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9306AE4923FCF78900C26F6A /* ABPKit.framework */; };
+		9306AE4B23FCF78900C26F6A /* ABPKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9306AE4923FCF78900C26F6A /* ABPKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9306AE4E23FCF79A00C26F6A /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9306AE4D23FCF79A00C26F6A /* RxSwift.framework */; };
+		9306AE4F23FCF79A00C26F6A /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9306AE4D23FCF79A00C26F6A /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AE4D15F22022D2E0008DC1D9 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D15F12022D2E0008DC1D9 /* UIAlertControllerExtension.swift */; };
 		AE878A2C1F8DBF43003B795C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE878A2B1F8DBF43003B795C /* AppDelegate.swift */; };
 		AE878A2E1F8DBF43003B795C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE878A2D1F8DBF43003B795C /* ViewController.swift */; };
@@ -16,7 +20,24 @@
 		AE8A406D1F8DCC98001F6C09 /* Benchmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8A406C1F8DCC98001F6C09 /* Benchmark.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		9306AE4C23FCF78900C26F6A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9306AE4F23FCF79A00C26F6A /* RxSwift.framework in Embed Frameworks */,
+				9306AE4B23FCF78900C26F6A /* ABPKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		9306AE4923FCF78900C26F6A /* ABPKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ABPKit.framework; path = Carthage/Build/iOS/ABPKit.framework; sourceTree = "<group>"; };
+		9306AE4D23FCF79A00C26F6A /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		AE4D15F12022D2E0008DC1D9 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		AE878A281F8DBF43003B795C /* WKWebView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WKWebView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE878A2B1F8DBF43003B795C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -33,12 +54,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9306AE4E23FCF79A00C26F6A /* RxSwift.framework in Frameworks */,
+				9306AE4A23FCF78900C26F6A /* ABPKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9306AE4823FCF78900C26F6A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9306AE4D23FCF79A00C26F6A /* RxSwift.framework */,
+				9306AE4923FCF78900C26F6A /* ABPKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AE4D15EC2022D27D008DC1D9 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +130,7 @@
 			children = (
 				AE878A2A1F8DBF43003B795C /* WKWebView */,
 				AE878A291F8DBF43003B795C /* Products */,
+				9306AE4823FCF78900C26F6A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +161,8 @@
 				AE878A241F8DBF43003B795C /* Sources */,
 				AE878A251F8DBF43003B795C /* Frameworks */,
 				AE878A261F8DBF43003B795C /* Resources */,
+				9306AE4C23FCF78900C26F6A /* Embed Frameworks */,
+				9306AE5023FCF7AD00C26F6A /* Run Carthage */,
 			);
 			buildRules = (
 			);
@@ -187,6 +222,29 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9306AE5023FCF7AD00C26F6A /* Run Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/ABPKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+			);
+			name = "Run Carthage";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AE878A241F8DBF43003B795C /* Sources */ = {
@@ -338,6 +396,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = TTERGQ9999;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/WKWebView/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -353,6 +415,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = TTERGQ9999;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/WKWebView/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
