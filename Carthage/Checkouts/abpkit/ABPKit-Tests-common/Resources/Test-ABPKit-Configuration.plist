@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>addonName</key>
+	<string>abpkit.testing-only</string>
+	<key>appGroupIOS</key>
+	<string>group.org.adblockplus.abpkit-ios.testing-only</string>
+	<key>appGroupMacOS</key>
+	<string>group.org.adblockplus.abpkit-macos.testing-only</string>
+	<key>partnerApplication</key>
+	<string>Partner-App.testing-only</string>
+	<key>partnerApplicationVersion</key>
+	<string>0.0.0.testing-only</string>
+</dict>
+</plist>

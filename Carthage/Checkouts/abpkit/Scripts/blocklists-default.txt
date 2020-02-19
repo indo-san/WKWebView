@@ -1,0 +1,13 @@
+# ABPKit default block list sources for scripts.
+
+RESOURCES="Resources"
+OUTPUT_PATH="ABPKit/Common/$RESOURCES/"
+CB_OUTPUT_PATH="HostCBExt-common/$RESOURCES/"
+BASENAME_EASYLIST="easylist_content_blocker.json"
+BASENAME_EASYLIST_PLUS_EXCEPTIONS="easylist+exceptionrules_content_blocker.json"
+LOCAL_EASYLIST="$OUTPUT_PATH/$BASENAME_EASYLIST"
+LOCAL_EASYLIST_PLUS_EXCEPTIONS="$OUTPUT_PATH/$BASENAME_EASYLIST_PLUS_EXCEPTIONS"
+REMOTE_EASYLIST="https://easylist-downloads.adblockplus.org/easylist_min_content_blocker.json"
+REMOTE_EASYLIST_PLUS_EXCEPTIONS="https://easylist-downloads.adblockplus.org/easylist_min+exceptionrules_content_blocker.json"
+CB_LOCAL_EASYLIST="$CB_OUTPUT_PATH/$BASENAME_EASYLIST"
+CB_LOCAL_EASYLIST_PLUS_EXCEPTIONS="$CB_OUTPUT_PATH/$BASENAME_EASYLIST_PLUS_EXCEPTIONS"

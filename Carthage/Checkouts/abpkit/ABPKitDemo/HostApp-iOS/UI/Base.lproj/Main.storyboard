@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ov1-V3-8ev">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Web View VC-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" userLabel="Web View VC" customClass="WebViewVC" customModule="HostApp_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter URL here" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="OWk-2w-3vT" userLabel="URL Field">
+                                <rect key="frame" x="8" y="44" width="304" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="PMU-5G-W8m"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="go" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="url"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HUh-7h-FuL">
+                                <rect key="frame" x="312" y="44" width="63" height="38"/>
+                                <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                                <state key="normal" title="Reload"/>
+                                <connections>
+                                    <action selector="reloadPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XVL-9E-s8R"/>
+                                </connections>
+                            </button>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UX8-rR-XY8">
+                                <rect key="frame" x="0.0" y="82" width="375" height="609"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration" allowsAirPlayForMediaPlayback="NO">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unit Testing is Active" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Msw-Cc-Qex" userLabel="Status Label">
+                                <rect key="frame" x="88.666666666666671" y="393" width="197.66666666666663" height="26.333333333333314"/>
+                                <color key="backgroundColor" red="0.0" green="0.68235294120000001" blue="0.93725490199999995" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="52R-5a-oAf" userLabel="AA Button">
+                                <rect key="frame" x="0.0" y="691" width="375" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="ZTd-rr-YgJ"/>
+                                </constraints>
+                                <state key="normal" title="AA"/>
+                                <connections>
+                                    <action selector="aaPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="djp-yM-fqD"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="OWk-2w-3vT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="Bbs-GL-4Nb"/>
+                            <constraint firstItem="UX8-rR-XY8" firstAttribute="top" secondItem="OWk-2w-3vT" secondAttribute="bottom" id="DLD-rC-fmf"/>
+                            <constraint firstItem="UX8-rR-XY8" firstAttribute="bottom" secondItem="52R-5a-oAf" secondAttribute="top" id="EnZ-hm-wRV"/>
+                            <constraint firstItem="52R-5a-oAf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="I0c-qc-Ghi"/>
+                            <constraint firstItem="UX8-rR-XY8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="TdQ-QL-od0"/>
+                            <constraint firstItem="HUh-7h-FuL" firstAttribute="centerY" secondItem="OWk-2w-3vT" secondAttribute="centerY" id="aBX-zd-dyh"/>
+                            <constraint firstItem="HUh-7h-FuL" firstAttribute="height" secondItem="OWk-2w-3vT" secondAttribute="height" id="bXK-42-8aH"/>
+                            <constraint firstItem="52R-5a-oAf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="m0C-NG-AaO"/>
+                            <constraint firstItem="HUh-7h-FuL" firstAttribute="leading" secondItem="OWk-2w-3vT" secondAttribute="trailing" id="o5o-ar-Huk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HUh-7h-FuL" secondAttribute="trailing" id="pGh-Bo-FC8"/>
+                            <constraint firstItem="OWk-2w-3vT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="r9F-vQ-7ZT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UX8-rR-XY8" secondAttribute="trailing" id="tC9-xc-1l5"/>
+                            <constraint firstItem="Msw-Cc-Qex" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uHq-sS-goL"/>
+                            <constraint firstItem="52R-5a-oAf" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="xoR-hS-MDN"/>
+                            <constraint firstItem="Msw-Cc-Qex" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="yag-13-75W"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Tab 1" id="kvB-pl-muW"/>
+                    <connections>
+                        <outlet property="aaButton" destination="52R-5a-oAf" id="OBJ-aS-gdC"/>
+                        <outlet property="reloadButton" destination="HUh-7h-FuL" id="sc5-Ft-Xbz"/>
+                        <outlet property="statusLabel" destination="Msw-Cc-Qex" id="qy7-JP-2Ih"/>
+                        <outlet property="urlField" destination="OWk-2w-3vT" id="ddS-Tt-GD8"/>
+                        <outlet property="webView" destination="UX8-rR-XY8" id="yMv-5l-J8c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-418" y="-415"/>
+        </scene>
+        <!--Web View VC-->
+        <scene sceneID="LmK-VP-sTo">
+            <objects>
+                <viewController id="mNc-rl-QVi" userLabel="Web View VC" customClass="WebViewVC" customModule="HostApp_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MhX-c6-9TJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter URL here" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="OA9-Qp-3Qw" userLabel="URL Field">
+                                <rect key="frame" x="8" y="44" width="304" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="IeI-b0-i6s"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="go" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="url"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVy-iJ-OaM">
+                                <rect key="frame" x="312" y="44" width="63" height="38"/>
+                                <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                                <state key="normal" title="Reload"/>
+                                <connections>
+                                    <action selector="reloadPressed:" destination="mNc-rl-QVi" eventType="touchUpInside" id="0Jr-fu-e3K"/>
+                                </connections>
+                            </button>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F9j-3c-wgH">
+                                <rect key="frame" x="0.0" y="82" width="375" height="609"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration" allowsAirPlayForMediaPlayback="NO">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unit Testing is Active" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sIh-iz-uVw" userLabel="Status Label">
+                                <rect key="frame" x="88.666666666666671" y="393" width="197.66666666666663" height="26.333333333333314"/>
+                                <color key="backgroundColor" red="0.0" green="0.68235294120000001" blue="0.93725490199999995" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="06h-Jk-fcp" userLabel="AA Button">
+                                <rect key="frame" x="0.0" y="691" width="375" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="qtl-jS-os2"/>
+                                </constraints>
+                                <state key="normal" title="AA"/>
+                                <connections>
+                                    <action selector="aaPressed:" destination="mNc-rl-QVi" eventType="touchUpInside" id="PXV-KI-roZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="NrL-T5-IKd" firstAttribute="trailing" secondItem="NVy-iJ-OaM" secondAttribute="trailing" id="0P8-jk-iRl"/>
+                            <constraint firstItem="sIh-iz-uVw" firstAttribute="centerX" secondItem="MhX-c6-9TJ" secondAttribute="centerX" id="0e6-Xz-lxn"/>
+                            <constraint firstItem="OA9-Qp-3Qw" firstAttribute="leading" secondItem="NrL-T5-IKd" secondAttribute="leading" constant="8" id="4Uv-Pj-hyw"/>
+                            <constraint firstItem="NVy-iJ-OaM" firstAttribute="height" secondItem="OA9-Qp-3Qw" secondAttribute="height" id="6gE-91-Exr"/>
+                            <constraint firstItem="sIh-iz-uVw" firstAttribute="centerY" secondItem="MhX-c6-9TJ" secondAttribute="centerY" id="6od-cy-DYm"/>
+                            <constraint firstItem="06h-Jk-fcp" firstAttribute="bottom" secondItem="NrL-T5-IKd" secondAttribute="bottom" id="N2e-n3-D6x"/>
+                            <constraint firstItem="NVy-iJ-OaM" firstAttribute="centerY" secondItem="OA9-Qp-3Qw" secondAttribute="centerY" id="O5y-pO-gsu"/>
+                            <constraint firstItem="06h-Jk-fcp" firstAttribute="leading" secondItem="NrL-T5-IKd" secondAttribute="leading" id="TGd-ms-C2a"/>
+                            <constraint firstItem="NrL-T5-IKd" firstAttribute="trailing" secondItem="F9j-3c-wgH" secondAttribute="trailing" id="UZM-f5-UcL"/>
+                            <constraint firstItem="F9j-3c-wgH" firstAttribute="bottom" secondItem="06h-Jk-fcp" secondAttribute="top" id="WC5-R1-Gck"/>
+                            <constraint firstItem="OA9-Qp-3Qw" firstAttribute="top" secondItem="NrL-T5-IKd" secondAttribute="top" id="cnE-dm-XMV"/>
+                            <constraint firstItem="06h-Jk-fcp" firstAttribute="centerX" secondItem="MhX-c6-9TJ" secondAttribute="centerX" id="fAZ-i9-5uV"/>
+                            <constraint firstItem="F9j-3c-wgH" firstAttribute="top" secondItem="OA9-Qp-3Qw" secondAttribute="bottom" id="kye-qt-oeY"/>
+                            <constraint firstItem="F9j-3c-wgH" firstAttribute="leading" secondItem="NrL-T5-IKd" secondAttribute="leading" id="uck-IH-IV5"/>
+                            <constraint firstItem="NVy-iJ-OaM" firstAttribute="leading" secondItem="OA9-Qp-3Qw" secondAttribute="trailing" id="yYq-H7-vTD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="NrL-T5-IKd"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Tab 2" id="O6Q-wP-5oH"/>
+                    <connections>
+                        <outlet property="aaButton" destination="06h-Jk-fcp" id="rbb-qj-3nb"/>
+                        <outlet property="reloadButton" destination="NVy-iJ-OaM" id="2QR-33-62g"/>
+                        <outlet property="statusLabel" destination="sIh-iz-uVw" id="6Do-Ed-oFF"/>
+                        <outlet property="urlField" destination="OA9-Qp-3Qw" id="l8u-zw-XPb"/>
+                        <outlet property="webView" destination="F9j-3c-wgH" id="hKC-56-Nf6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YoZ-Ik-PmH" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-418" y="351"/>
+        </scene>
+        <!--Tab BarC-->
+        <scene sceneID="AqS-Bi-iXU">
+            <objects>
+                <tabBarController id="Ov1-V3-8ev" customClass="TabBarC" customModule="HostApp_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Wee-PC-Jnf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="29l-TO-nX2"/>
+                        <segue destination="mNc-rl-QVi" kind="relationship" relationship="viewControllers" id="XYK-0e-csr"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ahm-S7-KNz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1516" y="-80"/>
+        </scene>
+    </scenes>
+</document>

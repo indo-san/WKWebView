@@ -28,7 +28,7 @@ class Benchmarks {
     
     func finish(key: String) -> String? {
         guard !key.isEmpty else { return nil }
-        guard let index = self.keys.index(of: key) else { return "Not Match loading Start URL and loading End URL. Plase reload this site. Probably you were redirected." }
+        guard let index = self.keys.firstIndex(of: key) else { return "Not Match loading Start URL and loading End URL. Plase reload this site. Probably you were redirected." }
         let time = self.benchmarks[index].finish()
         
         self.keys.remove(at: index)
