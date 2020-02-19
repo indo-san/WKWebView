@@ -26,24 +26,17 @@ struct AdBlockSetup {
         
         do {
             let abp = try ABPWebViewBlocker(host: host)
-                let user = getUser()
-                abp.user = user
-                let whitelistDomains: [String] = []
-                try abp.user = abp.lastUser().whiteListedDomainsSet()(whitelistDomains).saved()
-                
-                if let blockList = user?.getBlockList() {
-                    if blockList.isExpired() {
-                        setBlockList(user: user, withAcceptableAds: withAcceptableAds)
-                    }
-                } else {
-                    setBlockList(user: user, withAcceptableAds: withAcceptableAds)
+            let user = getUser()
+            abp.user = user
+            let whitelistDomains: [String] = ["ameblo.jp"]
+            try abp.user = abp.lastUser().whiteListedDomainsSet()(whitelistDomains).saved()
+            setBlockList(user: user, withAcceptableAds: withAcceptableAds)
+            abp.useContentBlocking(forceCompile: false) { (error) in
+                if let error = error {
+                    print(error)
                 }
-                abp.useContentBlocking(forceCompile: false) { (error) in
-                    if let error = error {
-                        print(error)
-                    }
-                    print(abp.user.getWhiteListedDomains()!)
-                }
+                print(abp.user.getWhiteListedDomains()!)
+            }
             return abp
         } catch let error {
             print(error)
@@ -75,9 +68,9 @@ struct AdBlockSetup {
     private static func setBlockList(user: User?, withAcceptableAds: Bool) {
         do {
             _ = try user?.blockListSet()(BlockList(
-                                withAcceptableAds: withAcceptableAds,
-                                source: RemoteBlockList.easylist,
-                                initiator: .userAction))
+                withAcceptableAds: withAcceptableAds,
+                source: RemoteBlockList.easylist,
+                initiator: .userAction))
         } catch let error {
             print(error)
         }
