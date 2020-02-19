@@ -8,9 +8,9 @@
 
 import UIKit
 import WebKit
+import ABPKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, ABPBlockable  {
 
     @IBOutlet private weak var webViewContainer: UIView!
     @IBOutlet private weak var textField: UITextField!
@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     
     @IBOutlet private weak var bottomLabel: UILabel!
 
-    private var webView: WKWebView! {
+    var webView: WKWebView! {
         didSet {
             webView.uiDelegate = self
             webView.navigationDelegate = self
@@ -34,7 +34,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupWebView()
-        webView.load(URLRequest(url: URL(string: "https://github.com/")!))
+        AdBlockSetup.setAdBlock(host: self)
+        webView.load(URLRequest(url: URL(string: "https://ameblo.jp/emika-aminyo/entry-12431450924.html")!))
     }
     
     @IBAction func onReloadButton(_ sender: UIBarButtonItem) {
