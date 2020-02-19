@@ -30,11 +30,13 @@ class ViewController: UIViewController, ABPBlockable  {
             webView.translatesAutoresizingMaskIntoConstraints = false
         }
     }
+    
+    private var abp: ABPWebViewBlocker?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupWebView()
-        AdBlockSetup.setAdBlock(host: self)
+        abp = AdBlockSetup.setAdBlock(host: self)
         webView.load(URLRequest(url: URL(string: "https://ameblo.jp/emika-aminyo/entry-12431450924.html")!))
     }
     
