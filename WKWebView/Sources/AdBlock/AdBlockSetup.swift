@@ -76,3 +76,14 @@ struct AdBlockSetup {
         }
     }
 }
+
+struct ABPKitSettingRepository {
+    static let key = "abp_kit_setting_key"
+    static func toggle() {
+        UserDefaults.standard.set(!isOn, forKey: key)
+    }
+    
+    static var isOn: Bool {
+        UserDefaults.standard.bool(forKey: key)
+    }
+}

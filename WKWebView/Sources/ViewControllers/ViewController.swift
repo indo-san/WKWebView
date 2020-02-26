@@ -11,7 +11,7 @@ import WebKit
 import ABPKit
 
 class ViewController: UIViewController, ABPBlockable  {
-
+    
     @IBOutlet private weak var webViewContainer: UIView!
     @IBOutlet private weak var textField: UITextField!
     @IBOutlet private weak var indicatorView: UIActivityIndicatorView! {
@@ -19,9 +19,17 @@ class ViewController: UIViewController, ABPBlockable  {
             indicatorView.hidesWhenStopped = true
         }
     }
+    @IBOutlet weak var abpKitSwitch: UISwitch! {
+        didSet {
+            abpKitSwitch.isOn = ABPKitSettingRepository.isOn
+        }
+    }
+    @IBOutlet weak var originalAdBlockSwitch: UISwitch! {
+        didSet {
+            originalAdBlockSwitch.isOn = AdBlockSettingRepository.isOn
+        }
+    }
     
-    @IBOutlet private weak var bottomLabel: UILabel!
-
     var webView: WKWebView! {
         didSet {
             webView.uiDelegate = self
@@ -32,11 +40,11 @@ class ViewController: UIViewController, ABPBlockable  {
     }
     
     private var abp: ABPWebViewBlocker?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupWebView()
-        //abp = AdBlockSetup.setAdBlock(host: self)
+        setupABPKit()
         webView.load(URLRequest(url: URL(string: "https://2ch.logpo.jp/")!))
     }
     
@@ -69,7 +77,13 @@ class ViewController: UIViewController, ABPBlockable  {
             NSLayoutConstraint(item: webView!, attribute: .left, relatedBy: .equal, toItem: self.webViewContainer, attribute: .left, multiplier: 1, constant: 0),
             NSLayoutConstraint(item: webView!, attribute: .right, relatedBy: .equal, toItem: self.webViewContainer, attribute: .right, multiplier: 1, constant: 0),
             NSLayoutConstraint(item: webView!, attribute: .bottom, relatedBy: .equal, toItem: self.webViewContainer, attribute: .bottom, multiplier: 1, constant: 0)
-            ])
+        ])
+    }
+    
+    private func setupABPKit() {
+        if ABPKitSettingRepository.isOn {
+            abp = AdBlockSetup.setAdBlock(host: self)
+        }
     }
     
     fileprivate func removeAllWKWebsiteData() {
@@ -82,7 +96,7 @@ class ViewController: UIViewController, ABPBlockable  {
             WKWebsiteDataTypeSessionStorage,
             WKWebsiteDataTypeIndexedDBDatabases,
             WKWebsiteDataTypeWebSQLDatabases
-            ])
+        ])
         
         WKWebsiteDataStore
             .default()
@@ -91,6 +105,16 @@ class ViewController: UIViewController, ABPBlockable  {
                 modifiedSince: Date(timeIntervalSince1970: 0),
                 completionHandler: {}
         )
+    }
+    
+    @IBAction func didValueChangedABPKit(_ sender: Any) {
+        ABPKitSettingRepository.toggle()
+        setupABPKit()
+    }
+    
+    @IBAction func didValueChangedOriginalAdBlock(_ sender: Any) {
+        AdBlockSettingRepository.toggle()
+        ContentBlocker.addContentBlockRules(to: webView)
     }
 }
 
@@ -115,8 +139,6 @@ extension ViewController: WKUIDelegate, WKNavigationDelegate {
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        let time = Benchmarks.shared.finish(key: webView.url?.absoluteString ?? "")
-        bottomLabel.text = time
         textField.text = webView.url?.absoluteString ?? ""
         indicatorView.stopAnimating()
         textField.resignFirstResponder()
@@ -125,21 +147,16 @@ extension ViewController: WKUIDelegate, WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         indicatorView.stopAnimating()
     }
-
+    
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
         print(error)
     }
-
-//    func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
-//        let cred = URLCredential(trust: challenge.protectionSpace.serverTrust!)
-//        completionHandler(.useCredential, cred)
-//    }
 }
 
 
 // MARK: UITextFieldDelegate
 extension ViewController: UITextFieldDelegate {
-
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard let text = textField.text, !text.isEmpty else {
             let ac = UIAlertController.makeSimpleAlert("TextField is empty", message: nil, okTitle: "OK", okAction: nil, cancelTitle: nil, cancelAction: nil)

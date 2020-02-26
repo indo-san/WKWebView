@@ -23,21 +23,6 @@ struct ContentBlocker {
         }
     }
     
-    static func updateContentBlockRulesThisVersion(webView: WKWebView) {
-        deleteBeforeContentRuleList()
-        
-        /// remove before rule list
-        lookUpContentRuleListThisVersion(type: BlockRuleType.getBefore()) { (contentRuleList, _) in
-            webView.configuration.userContentController.remove(contentRuleList)
-        }
-        
-        guard BlockRuleType.current != .none else { return }
-        /// add new rule list
-        lookUpContentRuleListThisVersion(type: BlockRuleType.current) { (contentRuleList, _) in
-            webView.configuration.userContentController.add(contentRuleList)
-        }
-    }
-    
     private static func lookUpContentRuleListThisVersion(type: BlockRuleType, handler: @escaping (WKContentRuleList, Error?) -> Void) {
         WKContentRuleListStore.default().lookUpContentRuleList(forIdentifier: type.identifier) { (contentRuleList, error) in
             guard let list = contentRuleList else {
@@ -67,15 +52,6 @@ struct ContentBlocker {
         } catch {
             print(#function, error)
         }
-    }
-    
-    static func removeContentRuleListThisVersion(type: BlockRuleType, completionHandler: @escaping () -> Void) {
-        WKContentRuleListStore.default().removeContentRuleList(forIdentifier: type.identifier, completionHandler: { (error) in
-            if let err = error {
-                print(#function, err)
-            }
-            completionHandler()
-        })
     }
     
     private static func printRuleListError(_ error: Error, text: String = "") {
@@ -164,7 +140,6 @@ struct AdBlockSettingRepository {
     }
     
     static var isOn: Bool {
-        return true
         UserDefaults.standard.bool(forKey: key)
     }
 }
