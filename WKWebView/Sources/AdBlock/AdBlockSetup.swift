@@ -28,7 +28,7 @@ struct AdBlockSetup {
             let abp = try ABPWebViewBlocker(host: host)
             let user = getUser()
             abp.user = user
-            let whitelistDomains: [String] = ["ameblo.jp"]
+            let whitelistDomains: [String] = []
             try abp.user = abp.lastUser().whiteListedDomainsSet()(whitelistDomains).saved()
             setBlockList(user: user, withAcceptableAds: withAcceptableAds)
             abp.useContentBlocking(forceCompile: false) { (error) in
