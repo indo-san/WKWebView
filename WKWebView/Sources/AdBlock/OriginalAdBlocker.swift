@@ -53,7 +53,6 @@ struct OriginalAdBlocker {
             var scriptContent = ""
             let smoozBlockerListHosts = Bundle.main.path(forResource: "SmoozBlockerListHosts", ofType: "json")
             scriptContent = "["
-            // json array にしないといけないので、各ファイルのつなぎ目にはカンマを入れる(ケツカンマはエラーになる)
             scriptContent += try String(contentsOfFile: smoozBlockerListHosts!, encoding: .utf8)
             scriptContent += "]"
             WKContentRuleListStore.default().compileContentRuleList(forIdentifier: type.identifier, encodedContentRuleList: scriptContent) { (contentRuleList, error) in
