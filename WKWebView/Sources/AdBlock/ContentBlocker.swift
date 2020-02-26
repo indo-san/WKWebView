@@ -51,27 +51,11 @@ struct ContentBlocker {
     private static func compileContentRuleList(type: BlockRuleType, handler: @escaping (WKContentRuleList, Error?) -> Void) {
         do {
             var scriptContent = ""
-            let startArray = Bundle.main.path(forResource: "StartArray", ofType: "json")
-            let endArray = Bundle.main.path(forResource: "EndArray", ofType: "json")
-            let comma = Bundle.main.path(forResource: "comma", ofType: "json")
-            let blockerListHosts = Bundle.main.path(forResource: "blockerListHosts", ofType: "json")
-            let ignoreRuleDomain = Bundle.main.path(forResource: "ignoreRuleDomain", ofType: "json")
             let smoozBlockerListHosts = Bundle.main.path(forResource: "SmoozBlockerListHosts", ofType: "json")
-            let smoozBlockerListCss = Bundle.main.path(forResource: "SmoozBlockerListCSS", ofType: "json")
-            let blockerListCss = Bundle.main.path(forResource: "blockerListCSS", ofType: "json")
-            
-            scriptContent = try String(contentsOfFile: startArray!, encoding: .utf8)
+            scriptContent = "["
             // json array にしないといけないので、各ファイルのつなぎ目にはカンマを入れる(ケツカンマはエラーになる)
-            scriptContent += try String(contentsOfFile: blockerListHosts!, encoding: .utf8)
-            scriptContent += try String(contentsOfFile: comma!, encoding: .utf8)
-            scriptContent += try String(contentsOfFile: ignoreRuleDomain!, encoding: .utf8)
-            scriptContent += try String(contentsOfFile: comma!, encoding: .utf8)
             scriptContent += try String(contentsOfFile: smoozBlockerListHosts!, encoding: .utf8)
-            scriptContent += try String(contentsOfFile: comma!, encoding: .utf8)
-            scriptContent += try String(contentsOfFile: smoozBlockerListCss!, encoding: .utf8)
-            scriptContent += try String(contentsOfFile: comma!, encoding: .utf8)
-            scriptContent += try String(contentsOfFile: blockerListCss!, encoding: .utf8)
-            scriptContent += try String(contentsOfFile: endArray!, encoding: .utf8)
+            scriptContent += "]"
             WKContentRuleListStore.default().compileContentRuleList(forIdentifier: type.identifier, encodedContentRuleList: scriptContent) { (contentRuleList, error) in
                 if let err = error {
                     printRuleListError(err)
@@ -180,6 +164,7 @@ struct AdBlockSettingRepository {
     }
     
     static var isOn: Bool {
+        return true
         UserDefaults.standard.bool(forKey: key)
     }
 }

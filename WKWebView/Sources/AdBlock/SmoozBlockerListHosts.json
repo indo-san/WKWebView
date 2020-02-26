@@ -1,0 +1,270 @@
+{
+  "action" : {
+    "type" : "block"
+  },
+  "trigger" : {
+    "load-type" : [
+      "third-party"
+    ],
+    "url-filter" : "^http?:\/+([^\/:]+\\.)?i-mobile.co.jp[:\/]"
+  }
+},
+{
+    "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+        "load-type" : [
+          "third-party"
+        ],
+        "url-filter" : "^https?:\/+([^\/:]+\\.)?rd.ane.yahoo.co.jp[:\/]"
+    }
+},
+{
+    "action" : {
+        "type" : "block"
+    },
+    "trigger" : {
+        "url-filter" : "^https?:\/+([^\/:]+\\.)?ard.yahoo.co.jp[:\/]"
+    }
+},
+{
+    "action" : {
+        "type" : "block"
+    },
+    "trigger" : {
+        "url-filter" : "^https?:\/+([^\/:]+\\.)?nend.net[:\/]"
+    }
+},
+{
+    "action" : {
+        "type" : "block"
+    },
+    "trigger" : {
+        "url-filter" : "^https?:\/+([^\/:]+\\.)?ad.ad-arata.com[:\/]"
+    }
+},
+{
+    "action" : {
+        "type" : "block"
+    },
+    "trigger" : {
+        "url-filter" : "^https?:\/+([^\/:]+\\.)?adpriv.nikkei.com[:\/]"
+    }
+},
+{
+    "action" : {
+        "type" : "block"
+    },
+    "trigger" : {
+        "url-filter" : "^http?:\/+([^\/:]+\\.)?sh.adingo.jp[:\/]"
+    }
+},
+{
+    "action" : {
+        "type" : "block"
+    },
+    "trigger" : {
+        "url-filter" : "^https?:\/+([^\/:]+\\.)?api.unthem.com[:\/]"
+    }
+},
+{
+    "action" : {
+        "type" : "block"
+    },
+    "trigger" : {
+        "url-filter" : "^https?:\/+([^\/:]+\\.)?mediad2.jp[:\/]"
+    }
+},
+{
+    "action" : {
+        "type" : "block"
+    },
+    "trigger" : {
+        "url-filter" : "^https?:\/+([^\/:]+\\.)?rcv.a-i-ad.com[:\/]"
+    }
+},
+{
+    "action" : {
+        "type" : "block"
+    },
+    "trigger" : {
+        "url-filter" : "^https?:\/+([^\/:]+\\.)?adone.yicha.jp[:\/]"
+    }
+},
+{
+    "action" : {
+        "type" : "block"
+    },
+    "trigger" : {
+        "url-filter" : "^https?:\/+([^\/:]+\\.)?file.octopuspop.com[:\/]"
+    }
+},
+{
+    "action" : {
+        "type" : "block"
+    },
+    "trigger" : {
+        "url-filter" : "^https?:\/+([^\/:]+\\.)?zucks.net.zimg.jp[:\/]"
+    }
+},
+{
+    "action" : {
+        "type" : "block"
+    },
+    "trigger" : {
+        "url-filter" : "^https?:\/+([^\/:]+\\.)?d.amoad.com[:\/]"
+    }
+},
+{
+    "action" : {
+        "type" : "block"
+    },
+    "trigger" : {
+        "url-filter" : "^https?:\/+([^\/:]+\\.)?googleads.g.doubleclick.net/pagead[:\/]"
+    }
+},
+{
+    "action" : {
+        "type" : "block"
+    },
+    "trigger" : {
+        "url-filter" : "^https?:\/+([^\/:]+\\.)?ad.maist.jp[:\/]"
+    }
+},
+{
+    "action" : {
+        "type" : "block"
+    },
+    "trigger" : {
+        "url-filter" : "^https?:\/+([^\/:]+\\.)?coincheck.com/images/affiliates[:\/]"
+    }
+},
+{
+    "action" : {
+        "type" : "block"
+    },
+    "trigger" : {
+        "url-filter" : "^https?:\/+([^\/:]+\\.)?ap.tapone.jp[:\/]"
+    }
+},
+{
+    "action" : {
+        "type" : "block"
+    },
+    "trigger" : {
+        "url-filter" : "^https?:\/+([^\/:]+\\.)?cf.uncn.jp[:\/]"
+    }
+},
+{
+    "action" : {
+        "type" : "block"
+    },
+    "trigger" : {
+        "url-filter" : "^https?:\/+([^\/:]+\\.)?creatives.gunosy.com[:\/]"
+    }
+},
+{
+    "action" : {
+        "type" : "block"
+    },
+    "trigger" : {
+        "url-filter" : "^https?:\/+([^\/:]+\\.)?deliver.rossoad.com[:\/]"
+    }
+},
+{
+    "action" : {
+        "type" : "block"
+    },
+    "trigger" : {
+        "url-filter" : "^https?:\/+([^\/:]+\\.)?rd.adingo.jp[:\/]"
+    }
+},
+{
+    "action" : {
+        "type" : "block"
+    },
+    "trigger" : {
+        "url-filter" : "^https?:\/+([^\/:]+\\.)?ad-tag.biz[:\/]"
+    }
+},
+{
+    "action" : {
+        "type" : "block"
+    },
+    "trigger" : {
+        "url-filter" : "^https?:\/+([^\/:]+\\.)?j.amoad.com[:\/]"
+    }
+},
+{
+    "action" : {
+        "type" : "block"
+    },
+    "trigger" : {
+        "url-filter" : "^https?:\/+([^\/:]+\\.)?spsvcsp.i-mobile.co.jp[:\/]"
+    }
+},
+{
+    "action" : {
+        "type" : "block"
+    },
+    "trigger" : {
+        "url-filter" : "^https?:\/+([^\/:]+\\.)?adpon-prd-asset.sslcs.cdngc.net[:\/]"
+    }
+},
+{
+    "action" : {
+        "type" : "block"
+    },
+    "trigger" : {
+        "url-filter" : "^https?:\/+([^\/:]+\\.)?.*genieesspv.jp[:\/]"
+    }
+},
+{
+    "action" : {
+        "type" : "block"
+    },
+    "trigger" : {
+        "url-filter" : "^https?:\/+([^\/:]+\\.)?cocoad[:\/]"
+    }
+},
+{
+    "action" : {
+        "type" : "block"
+    },
+    "trigger" : {
+        "url-filter" : "^https?:\/+([^\/:]+\\.)?.*affiliate.rakuten.co.jp[:\/]"
+    }
+},
+{
+    "action" : {
+        "type" : "block"
+    },
+    "trigger" : {
+        "url-filter" : "^https?:\/+([^\/:]+\\.)?ad999.biz[:\/]"
+    }
+},
+{
+    "action" : {
+        "type" : "block"
+    },
+    "trigger" : {
+        "url-filter" : "^https?:\/+([^\/:]+\\.)?acs.gssprt.jp[:\/]"
+    }
+},
+{
+    "action" : {
+        "type" : "block"
+    },
+    "trigger" : {
+        "url-filter" : "^https?:\/+([^\/:]+\\.)?glssp.net/logger.js[:\/]"
+    }
+},
+{
+  "action" : {
+    "type" : "block"
+  },
+  "trigger" : {
+    "url-filter" : "^https?:\/+([^\/:]+\\.)?.*i-mobile.co.jp[:\/]"
+  }
+}

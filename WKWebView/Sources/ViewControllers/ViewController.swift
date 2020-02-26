@@ -36,8 +36,8 @@ class ViewController: UIViewController, ABPBlockable  {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupWebView()
-        abp = AdBlockSetup.setAdBlock(host: self)
-        webView.load(URLRequest(url: URL(string: "https://ameblo.jp/emika-aminyo/entry-12431450924.html")!))
+        //abp = AdBlockSetup.setAdBlock(host: self)
+        webView.load(URLRequest(url: URL(string: "https://2ch.logpo.jp/")!))
     }
     
     @IBAction func onReloadButton(_ sender: UIBarButtonItem) {
@@ -61,7 +61,8 @@ class ViewController: UIViewController, ABPBlockable  {
     
     private func setupWebView() {
         let configuration = WKWebViewConfiguration()
-        webView = WKWebView(frame: CGRect.zero, configuration: configuration)
+        webView = WKWebView(frame: .zero, configuration: configuration)
+        ContentBlocker.addContentBlockRules(to: webView)
         self.webViewContainer.addSubview(webView)
         self.webViewContainer.addConstraints([
             NSLayoutConstraint(item: webView!, attribute: .top, relatedBy: .equal, toItem: self.webViewContainer, attribute: .top, multiplier: 1, constant: 0),
