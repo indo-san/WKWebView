@@ -12,7 +12,7 @@
 		9306AE4E23FCF79A00C26F6A /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9306AE4D23FCF79A00C26F6A /* RxSwift.framework */; };
 		9306AE4F23FCF79A00C26F6A /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9306AE4D23FCF79A00C26F6A /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9306AE5323FCF83E00C26F6A /* AdBlockSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9306AE5223FCF83E00C26F6A /* AdBlockSetup.swift */; };
-		93C5B700240652050007648E /* ContentBlocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C5B6FF240652050007648E /* ContentBlocker.swift */; };
+		93C5B700240652050007648E /* OriginalAdBlocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C5B6FF240652050007648E /* OriginalAdBlocker.swift */; };
 		93C5B702240654890007648E /* SmoozBlockerListHosts.json in Resources */ = {isa = PBXBuildFile; fileRef = 93C5B701240654890007648E /* SmoozBlockerListHosts.json */; };
 		AE4D15F22022D2E0008DC1D9 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D15F12022D2E0008DC1D9 /* UIAlertControllerExtension.swift */; };
 		AE878A2C1F8DBF43003B795C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE878A2B1F8DBF43003B795C /* AppDelegate.swift */; };
@@ -42,7 +42,7 @@
 		9306AE4923FCF78900C26F6A /* ABPKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ABPKit.framework; path = Carthage/Build/iOS/ABPKit.framework; sourceTree = "<group>"; };
 		9306AE4D23FCF79A00C26F6A /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		9306AE5223FCF83E00C26F6A /* AdBlockSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdBlockSetup.swift; sourceTree = "<group>"; };
-		93C5B6FF240652050007648E /* ContentBlocker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentBlocker.swift; sourceTree = "<group>"; };
+		93C5B6FF240652050007648E /* OriginalAdBlocker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalAdBlocker.swift; sourceTree = "<group>"; };
 		93C5B701240654890007648E /* SmoozBlockerListHosts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SmoozBlockerListHosts.json; sourceTree = "<group>"; };
 		AE4D15F12022D2E0008DC1D9 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		AE878A281F8DBF43003B795C /* WKWebView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WKWebView.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,7 +82,7 @@
 			children = (
 				93C5B701240654890007648E /* SmoozBlockerListHosts.json */,
 				9306AE5223FCF83E00C26F6A /* AdBlockSetup.swift */,
-				93C5B6FF240652050007648E /* ContentBlocker.swift */,
+				93C5B6FF240652050007648E /* OriginalAdBlocker.swift */,
 			);
 			path = AdBlock;
 			sourceTree = "<group>";
@@ -271,7 +271,7 @@
 			files = (
 				9306AE5323FCF83E00C26F6A /* AdBlockSetup.swift in Sources */,
 				AE4D15F22022D2E0008DC1D9 /* UIAlertControllerExtension.swift in Sources */,
-				93C5B700240652050007648E /* ContentBlocker.swift in Sources */,
+				93C5B700240652050007648E /* OriginalAdBlocker.swift in Sources */,
 				AE878A2E1F8DBF43003B795C /* ViewController.swift in Sources */,
 				AE8A406D1F8DCC98001F6C09 /* Benchmark.swift in Sources */,
 				AE878A2C1F8DBF43003B795C /* AppDelegate.swift in Sources */,

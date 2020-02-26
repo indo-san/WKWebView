@@ -70,7 +70,7 @@ class ViewController: UIViewController, ABPBlockable  {
     private func setupWebView() {
         let configuration = WKWebViewConfiguration()
         webView = WKWebView(frame: .zero, configuration: configuration)
-        ContentBlocker.addContentBlockRules(to: webView)
+        OriginalAdBlocker.addBlockRules(to: webView)
         self.webViewContainer.addSubview(webView)
         self.webViewContainer.addConstraints([
             NSLayoutConstraint(item: webView!, attribute: .top, relatedBy: .equal, toItem: self.webViewContainer, attribute: .top, multiplier: 1, constant: 0),
@@ -114,7 +114,7 @@ class ViewController: UIViewController, ABPBlockable  {
     
     @IBAction func didValueChangedOriginalAdBlock(_ sender: Any) {
         AdBlockSettingRepository.toggle()
-        ContentBlocker.addContentBlockRules(to: webView)
+        OriginalAdBlocker.updateBlockRulesThisVersion(to: webView)
     }
 }
 

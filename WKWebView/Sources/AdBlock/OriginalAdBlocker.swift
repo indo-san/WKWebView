@@ -1,5 +1,5 @@
 //
-//  ContentBlocker.swift
+//  OriginalAdBlocker.swift
 //  WKWebView
 //
 //  Created by 中田諒 on 2020/02/26.
@@ -10,30 +10,45 @@ import Foundation
 import WebKit
 
 // MARK: - WKContentRuleListStore
-struct ContentBlocker {
+struct OriginalAdBlocker {
     
     private static var blockImagesRule: WKContentRuleList?
     
-    static func addContentBlockRules(to webView: WKWebView) {
-        deleteBeforeContentRuleList()
+    static func addBlockRules(to webView: WKWebView) {
+        deleteBeforeRuleList()
         guard BlockRuleType.current != .none else { return }
         
-        lookUpContentRuleListThisVersion(type: BlockRuleType.current) { (contentRuleList, _) in
+        lookUpRuleListThisVersion(type: BlockRuleType.current) { (contentRuleList, _) in
             webView.configuration.userContentController.add(contentRuleList)
         }
     }
     
-    private static func lookUpContentRuleListThisVersion(type: BlockRuleType, handler: @escaping (WKContentRuleList, Error?) -> Void) {
+    static func updateBlockRulesThisVersion(to webView: WKWebView) {
+        deleteBeforeRuleList()
+        
+        /// remove before rule list
+        lookUpRuleListThisVersion(type: BlockRuleType.getBefore()) { (contentRuleList, _) in
+            webView.configuration.userContentController.remove(contentRuleList)
+        }
+        
+        guard BlockRuleType.current != .none else { return }
+        /// add new rule list
+        lookUpRuleListThisVersion(type: BlockRuleType.current) { (contentRuleList, _) in
+            webView.configuration.userContentController.add(contentRuleList)
+        }
+    }
+    
+    private static func lookUpRuleListThisVersion(type: BlockRuleType, handler: @escaping (WKContentRuleList, Error?) -> Void) {
         WKContentRuleListStore.default().lookUpContentRuleList(forIdentifier: type.identifier) { (contentRuleList, error) in
             guard let list = contentRuleList else {
-                compileContentRuleList(type: type, handler: handler)
+                compileRuleList(type: type, handler: handler)
                 return
             }
             handler(list, error)
         }
     }
     
-    private static func compileContentRuleList(type: BlockRuleType, handler: @escaping (WKContentRuleList, Error?) -> Void) {
+    private static func compileRuleList(type: BlockRuleType, handler: @escaping (WKContentRuleList, Error?) -> Void) {
         do {
             var scriptContent = ""
             let smoozBlockerListHosts = Bundle.main.path(forResource: "SmoozBlockerListHosts", ofType: "json")
@@ -73,7 +88,7 @@ struct ContentBlocker {
         }
     }
     
-    private static func deleteBeforeContentRuleList() {
+    private static func deleteBeforeRuleList() {
         let thisVersionIndentifers = [BlockRuleType.adBlock.identifier]
         WKContentRuleListStore.default().getAvailableContentRuleListIdentifiers { (availableRuleLists) in
             guard let list = availableRuleLists else {
@@ -81,11 +96,11 @@ struct ContentBlocker {
             }
             guard list.count > 2 else { return } // exist only now version (images, adBlock)
             _ = list.filter { !thisVersionIndentifers.contains($0) }
-                .map { deleteContentRuleList(identifer: $0, errorHandler: nil) }
+                .map { deleteRuleList(identifer: $0, errorHandler: nil) }
         }
     }
     
-    private static func deleteContentRuleList(identifer: String, errorHandler: ((_ error: Error) -> Void)?) {
+    private static func deleteRuleList(identifer: String, errorHandler: ((_ error: Error) -> Void)?) {
         WKContentRuleListStore.default().removeContentRuleList(forIdentifier: identifer) { (error) in
             if let err = error {
                 print("error occurred during remove content rule list")
