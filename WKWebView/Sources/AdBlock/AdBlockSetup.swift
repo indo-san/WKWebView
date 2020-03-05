@@ -26,16 +26,7 @@ struct AdBlockSetup {
         do {
             let abp = try ABPWebViewBlocker(host: host)
                 let user = getUser()
-                if let blockList = user?.getBlockList() {
-                    if blockList.isExpired() {
-                        abp.user = userWithBlockListSet(user: user, withAcceptableAds: withAcceptableAds)
-                    } else {
-                        abp.user = user
-                    }
-                } else {
-                   abp.user = userWithBlockListSet(user: user, withAcceptableAds: withAcceptableAds)
-                }
-                
+                abp.user = userWithBlockListSet(user: user, withAcceptableAds: withAcceptableAds)
                 abp.useContentBlocking(forceCompile: false) { (error) in
                     if let error = error {
                         print(error)
@@ -71,7 +62,7 @@ struct AdBlockSetup {
     }
     
     private static func userWithBlockListSet(user: User?, withAcceptableAds: Bool) -> User? {
-        let src = withAcceptableAds ? RemoteBlockList.easylistPlusExceptions : RemoteBlockList.easylist
+        let src = SmoozAdBlockList.list
         do {
             return try user?.blockListSet()(BlockList(
                 withAcceptableAds: withAcceptableAds,
