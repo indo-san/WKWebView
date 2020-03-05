@@ -22,21 +22,26 @@ struct AdBlockSetup {
         }
     }
     
-    static func setAdBlock(host: ABPBlockable, withAcceptableAds: Bool = true) -> ABPWebViewBlocker? {
-        
+    static func setAdBlock(host: ABPBlockable, withAcceptableAds: Bool = false) -> ABPWebViewBlocker? {
         do {
             let abp = try ABPWebViewBlocker(host: host)
-            let user = getUser()
-            abp.user = user
-            let whitelistDomains: [String] = []
-            try abp.user = abp.lastUser().whiteListedDomainsSet()(whitelistDomains).saved()
-            setBlockList(user: user, withAcceptableAds: withAcceptableAds)
-            abp.useContentBlocking(forceCompile: false) { (error) in
-                if let error = error {
-                    print(error)
+                let user = getUser()
+                if let blockList = user?.getBlockList() {
+                    if blockList.isExpired() {
+                        abp.user = userWithBlockListSet(user: user, withAcceptableAds: withAcceptableAds)
+                    } else {
+                        abp.user = user
+                    }
+                } else {
+                   abp.user = userWithBlockListSet(user: user, withAcceptableAds: withAcceptableAds)
                 }
-                print(abp.user.getWhiteListedDomains()!)
-            }
+                
+                abp.useContentBlocking(forceCompile: false) { (error) in
+                    if let error = error {
+                        print(error)
+                    }
+                    print(abp.user.getWhiteListedDomains()!)
+                }
             return abp
         } catch let error {
             print(error)
@@ -65,17 +70,20 @@ struct AdBlockSetup {
         return user
     }
     
-    private static func setBlockList(user: User?, withAcceptableAds: Bool) {
+    private static func userWithBlockListSet(user: User?, withAcceptableAds: Bool) -> User? {
+        let src = withAcceptableAds ? RemoteBlockList.easylistPlusExceptions : RemoteBlockList.easylist
         do {
-            _ = try user?.blockListSet()(BlockList(
+            return try user?.blockListSet()(BlockList(
                 withAcceptableAds: withAcceptableAds,
-                source: RemoteBlockList.easylist,
+                source: src,
                 initiator: .userAction))
         } catch let error {
             print(error)
+            return nil
         }
     }
 }
+
 
 struct ABPKitSettingRepository {
     static let key = "abp_kit_setting_key"
